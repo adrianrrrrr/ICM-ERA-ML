@@ -85,10 +85,19 @@ def read_nwp_var(fpath, var_id):
         nwp_var = grb.values
     return nwp_var
 
-File = "ERA5/nwp_2020032_06_00.grib"
+File = "nwp_2020032_06_00.grib"
 
 ids = get_nwp_var_ids(File)
 #X_data = read_nwp_var("ERA5/nwp_2020032_06_00.grib", ids['sst']-1)
-X = read_nwp_vars("ERA5/nwp_2020032_06_00.grib", ids)
+X = read_nwp_vars(File, ['sst'])
 
 X = X[0].tolist(-1)
+
+
+from netCDF4 import Dataset
+
+file_path = 'ascata_20200201_l2_collocated_inputs.nc'
+nc = Dataset(file_path)
+var_data = nc.variables['sst'].__array__()
+nc.close()
+
