@@ -1,0 +1,23 @@
+name: erasml_xgboost_cpu
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - conda-forge::pygrib
+  - conda-forge::netCDF4
+  - conda-forge::cartopy
+  - matplotlib
+  - scipy
+  - plotly
+  - scikit-learn
+  - pandas
+  - numpy
+  - pyproj
+  - seaborn
+  - notebook
+  - pip
+  - pip:
+    - wandb
+    - tqdm
+    - xgboost
