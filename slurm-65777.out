@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/usuaris/imatge/adrian.ramos/ICM-ERA/ICM-XGBOOST/xgoost_train_models.py", line 77, in <module>
+    generate_inputs_train(xgboost_params, input_var_names, train_input_dir, eval_input_dir, np_train_files_dir, 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/usuaris/imatge/adrian.ramos/ICM-ERA/ICM-XGBOOST/xgoost_train_models.py", line 15, in generate_inputs_train
+    train_np_flist = xbg_train_generator.generate_np_files()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/usuaris/imatge/adrian.ramos/ICM-ERA/ICM-XGBOOST/preprocessing_xgboost.py", line 147, in generate_np_files
+    accumulated_inputs = np.vstack(accumulated_inputs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/usuaris/imatge/adrian.ramos/.conda/envs/erasml_xgboost_gpu/lib/python3.11/site-packages/numpy/_core/shape_base.py", line 287, in vstack
+    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: need at least one array to concatenate
