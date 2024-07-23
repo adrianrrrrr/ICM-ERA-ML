@@ -13,11 +13,11 @@ def vrms_fnn_era5(prediction_corr, target_corr):
     vrms_pred = (np.sum((target_corr-prediction_corr)**2)/N_pred)**0.5
     return vrms_target, vrms_pred, N_target
 
-scat_dir = "D:\\ICM\\ERAStar_ML2\\ASCAT\\2020\\test\\"
-model_dir = "D:\\ICM\\ERAStar_ML2\\saved_models\\xgboost\\smart\\"
-model_names = ["allvars_gpu_1500", "allvars_gpu_2000"]
+scat_dir = "/Volumes/SSD Adrian/TFM/adrian_tfm/ASCAT_l2_collocations/2020/test/"
+model_dir = "/Volumes/SSD Adrian/TFM/adrian_tfm/ASCAT_l2_collocations/2020/saved_models/"
+model_names = ["allvars_cpu_1000", "allvars_cpu_1500"]
 #model_names = ["allvars_2000"]
-vrms_stats_dir = "C:\\Users\\Eugenia\\OneDrive\\Documents\\ICM\\OSI_SAF2\\metrics\\paper\\xgb\\"
+vrms_stats_dir = "/Volumes/SSD Adrian/TFM/adrian_tfm/ASCAT_l2_collocations/2020/vrms_stats/"
 vrm_stats_pref = "2020_smart_"
 vrm_stats_postf = "_test.csv"
 model_ext = ".json"
