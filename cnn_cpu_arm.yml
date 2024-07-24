@@ -1,4 +1,4 @@
-name: erasml_xgboost_cpu
+name: erasml_cnn_arm
 channels:
   - conda-forge
   - defaults
