@@ -4,10 +4,10 @@ channels:
   - defaults
 dependencies:
   - python=3.11
-  - conda-forge::pygrib
-  - conda-forge::netCDF4
-  - conda-forge::cartopy
-  - conda-forge::mlx
+  - pygrib
+  - netCDF4
+  - cartopy
+  - mlx
   - matplotlib
   - scipy
   - plotly
@@ -16,7 +16,6 @@ dependencies:
   - time
   - numpy
   - pyproj
-  - sklearn
   - seaborn
   - notebook
   - pip
