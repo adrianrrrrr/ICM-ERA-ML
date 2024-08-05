@@ -38,7 +38,7 @@ def generate_inputs_train(cnn_params, input_var_names, train_input_dir, eval_inp
 
     model_path = f"{save_model_folder}{prefix}1000.json"
 
-    return uNET, evals_metrics, model_path
+    return model_path
 
 
 # Agreed on last meeting
@@ -50,9 +50,9 @@ scat_model_var_names = {'scat': ['eastward_wind', 'northward_wind'],
 target_var_names = ['u_diff', 'v_diff']
 
 # File path env setup. Currently local execution for Adrian's iMac
-# Train period from 02/01/2020 - 06/03/2020 both included
+# Train period L3 01/01/2020 des
 train_input_dir = "/Volumes/SSD Adrian/TFM/adrian_tfm/ASCAT_l3_collocations/2020/uNET_train/"
-# Test period from  10/03/2020 - 01/05/2020 both included
+# Test period L3 01/02/2020 des
 eval_input_dir = "/Volumes/SSD Adrian/TFM/adrian_tfm/ASCAT_l3_collocations/2020/uNET_test/"
 
 np_train_files_dir = "/Volumes/SSD Adrian/TFM/adrian_tfm/ASCAT_l3_collocations/2020/uNET_np_data/train/"
