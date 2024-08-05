@@ -98,6 +98,16 @@ val_loader = DataLoader(val_dataset, batch_size=hparams['batch_size'], shuffle=F
 uNET = UNet(in_channels=12, out_channels=2)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(uNET.parameters(), lr=hparams['learning_rate'])
+'''
+Some notes about batch & epoch:
+
+Batch Gradient Descent. Batch Size = Size of Training Set
+Stochastic Gradient Descent. Batch Size = 1 WE ARE USING THIS
+Mini-Batch Gradient Descent. 1 < Batch Size < Size of Training Set
+
+The batch size is a number of samples processed before the model is updated.
+The number of epochs is the number of complete passes through the training dataset.
+'''
 
 # Training loop
 for epoch in range(hparams['epochs']):
