@@ -19,6 +19,9 @@ import sklearn
 
 start = time.time()
 
+device = torch.device("mps" if torch.backends.mps.is_available()
+                      else "cpu")
+
 def generate_inputs_train(cnn_params, input_var_names, train_input_dir, eval_input_dir, np_train_files_dir, np_eval_files_dir, prefix):
 
     # Full model load. uNETInputGenerator just load and create the dataset
@@ -83,9 +86,9 @@ eval_data = np.load(val_fn)
 
 
 # Prepare the dataset and dataloader
-X = train_data['inputs']
-y = train_data['targets'] 
-dataset = TensorDataset(torch.tensor(X), torch.tensor(y))
+X = np.float32(train_data['inputs']) # This to avoid errors when converting to Tensors
+y = np.float32(train_data['targets'])
+dataset = TensorDataset(torch.tensor(X).to(device), torch.tensor(y).to(device))
 train_size = int(0.8 * len(dataset))
 val_size = len(dataset) - train_size
 train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
@@ -98,7 +101,7 @@ optimizer = optim.Adam(uNET.parameters(), lr=hparams['learning_rate'])
 
 # Training loop
 for epoch in range(hparams['epochs']):
-    model.train()
+    uNET.train()
     train_loss = 0.0
     for inputs, targets in train_loader:
         optimizer.zero_grad()
